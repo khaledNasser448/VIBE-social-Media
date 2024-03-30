@@ -15,6 +15,11 @@
     </style>
 </head>
 <body>
+  <!-- ========alerts===== -->
+  <!-- logedIn sucsessfully alert -->
+  
+  <!-- //logedIn sucsessfully alert// -->
+  <!-- ========//alerts//===== -->
   <!-- =========modals========= -->
   <!-- logIn modal -->
   <div class="modal fade" id="logIn-btn" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -38,7 +43,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn" data-bs-dismiss="modal" style="color: white; background-color: black;">Close</button>
-          <button type="button" class="btn "  style="background-color: rgb(0, 97, 0); color: white;" id="logIn-btn">logIn</button>
+          <button type="button" class="btn "  style="background-color: rgb(0, 97, 0); color: white;" id="logIn-btn" onclick="logInBtnClicked()">logIn</button>
         </div>
       </div>
     </div>
@@ -51,7 +56,7 @@
         <div class="col-10">
           <nav class="navbar navbar-expand-lg bg-body-tertiary shadow rounded">
             <div class="container-fluid" >
-              <a class="navbar-brand" href="#">VIBE</a>
+              <h3> <span class="badge " style="margin-top: 5PX; background-color:rgb(0, 97, 0) ;">VIBE</span></h3>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -137,10 +142,8 @@
 <script src="./mainLogic.js"></script>
 <script src="./node_modules/axios/dist/axios.min.js"></script>
 <script>
-  axios.get('https://tarmeezacademy.com/api/v1/posts')
+ axios.get('https://tarmeezacademy.com/api/v1/posts')
   .then(function (response) {
-    // handle success
-    console.log(response.data);
     let content = ``
     let cardsDiv = document.getElementById("cards-div")
     let posts = response.data.data
@@ -177,5 +180,21 @@
       cardsDiv.innerHTML =content
     }
   })
+  function logInBtnClicked() {
+    let userName = document.getElementById("username-logIn-input").value
+    let password = document.getElementById("password-logIn-input").value
+    console.log(userName,password);
+    let params = {
+      username: userName ,
+      password : password
+    }
+    axios.post('https://tarmeezacademy.com/api/v1/login',params )
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+  }
 </script>
 </html>
