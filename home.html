@@ -17,7 +17,8 @@
 <body>
   <!-- ========alerts===== -->
   <!-- logedIn sucsessfully alert -->
-  
+  <div id="success-alert" class="alert alert-success d-none " role="alert" style=" position: fixed; bottom: 0; right: 0; z-index: 9999; ;">
+  </div>
   <!-- //logedIn sucsessfully alert// -->
   <!-- ========//alerts//===== -->
   <!-- =========modals========= -->
@@ -142,7 +143,20 @@
 <script src="./mainLogic.js"></script>
 <script src="./node_modules/axios/dist/axios.min.js"></script>
 <script>
- axios.get('https://tarmeezacademy.com/api/v1/posts')
+  const baseUrl =`https://tarmeezacademy.com/api/v1`
+  const successAlert = document.getElementById('success-alert');
+// alert function//
+ function showSuccessAlert(message) {
+  successAlert.textContent = message; // Set the alert message
+  successAlert.classList.remove('d-none'); // Show the alert
+
+  setTimeout(() => {
+    successAlert.classList.add('d-none'); // Hide the alert after 2 seconds
+  }, 3000);
+}
+
+ function getPosts(){
+    axios.get(`${baseUrl}/posts`)
   .then(function (response) {
     let content = ``
     let cardsDiv = document.getElementById("cards-div")
@@ -180,17 +194,27 @@
       cardsDiv.innerHTML =content
     }
   })
-  function logInBtnClicked() {
+  }
+   getPosts()
+ function logInBtnClicked() {
     let userName = document.getElementById("username-logIn-input").value
     let password = document.getElementById("password-logIn-input").value
-    console.log(userName,password);
     let params = {
       username: userName ,
       password : password
     }
-    axios.post('https://tarmeezacademy.com/api/v1/login',params )
+    axios.post(`${baseUrl}/login`,params )
   .then(function (response) {
     console.log(response);
+    let token = response.data.token;
+    localStorage.setItem(`token`, token)
+    console.log(token);
+    const logInModal = document.getElementById('logIn-btn');
+    const modalInstance = bootstrap.Modal.getInstance(logInModal);
+    modalInstance.hide()
+    showSuccessAlert('You looged in successfully !');
+
+
   })
   .catch(function (error) {
     console.log(error);
