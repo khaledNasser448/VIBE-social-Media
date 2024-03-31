@@ -17,7 +17,7 @@
 <body>
   <!-- ========alerts===== -->
   <!-- logedIn sucsessfully alert -->
-  <div id="success-alert" class="alert alert-success d-none " role="alert" style=" position: fixed; bottom: 0; right: 0; z-index: 9999; ;">
+  <div id="success-alert" class="alert d-none " role="alert" style=" position: fixed; bottom: 0; right: 0; z-index: 9999; ;">
   </div>
   <!-- //logedIn sucsessfully alert// -->
   <!-- ========//alerts//===== -->
@@ -70,10 +70,17 @@
                     <a class="nav-link" href="#">Profile</a>
                   </li>
                 </ul>
-                <div class="d-flex justify-content-end" style="width: 100%;" >
-                    <button type="button" class="btn btn-outline-success"  data-bs-toggle="modal" data-bs-target="#logIn-btn">logIn</button>
-                    <button type="button" class="btn btn-outline-success" style="margin-left: 5px;">Register</button>
+                <!-- logIn and Register Div -->
+                <div class=" justify-content-end" style="width: 100%; display: flex ;"  id="logAndRegDiv" >
+                    <button type="button" class="btn btn-outline-success"  data-bs-toggle="modal" data-bs-target="#logIn-btn" id="logIn-nav">logIn</button>
+                    <button type="button" class="btn btn-outline-success" style="margin-left: 5px; " id="register-nav">Register</button>
                 </div>
+                <!-- //logIn and Register Div// -->
+                <!-- logOut Div -->
+                <div class=" justify-content-end" style="width: 100%; display: none ;"  id="logoutDiv" >
+                  <button type="button" class="btn btn-outline-danger" style="margin-left: 5px; " id="register-nav" onclick="logOutBtnClicked()">logOut</button>
+              </div>
+              <!-- //logOut Div// -->
               </div>
             </div>
           </nav>
@@ -145,16 +152,17 @@
 <script>
   const baseUrl =`https://tarmeezacademy.com/api/v1`
   const successAlert = document.getElementById('success-alert');
+  setupui();
 // alert function//
- function showSuccessAlert(message) {
+ function showAlert(message, color) {
   successAlert.textContent = message; // Set the alert message
   successAlert.classList.remove('d-none'); // Show the alert
-
+  successAlert.classList.add(color)
   setTimeout(() => {
     successAlert.classList.add('d-none'); // Hide the alert after 2 seconds
   }, 3000);
 }
-
+// getting users posts//
  function getPosts(){
     axios.get(`${baseUrl}/posts`)
   .then(function (response) {
@@ -196,6 +204,7 @@
   })
   }
    getPosts()
+  //  logedIn function
  function logInBtnClicked() {
     let userName = document.getElementById("username-logIn-input").value
     let password = document.getElementById("password-logIn-input").value
@@ -205,20 +214,40 @@
     }
     axios.post(`${baseUrl}/login`,params )
   .then(function (response) {
-    console.log(response);
     let token = response.data.token;
     localStorage.setItem(`token`, token)
-    console.log(token);
+    setupui();
     const logInModal = document.getElementById('logIn-btn');
     const modalInstance = bootstrap.Modal.getInstance(logInModal);
     modalInstance.hide()
-    showSuccessAlert('You looged in successfully !');
-
-
+    showAlert('You looged in successfully !', 'alert-success');
   })
   .catch(function (error) {
     console.log(error);
   });
   }
+ function setupui(){
+ let logInAndRegisterDiv = document.getElementById("logAndRegDiv")
+ let token = localStorage.getItem("token");
+ let logAndRegDiv = document.getElementById('logAndRegDiv');
+ let logOutDiv = document.getElementById('logoutDiv')
+ if(token){
+  logOutDiv.style.display = 'flex'
+  logAndRegDiv.style.display = 'none'
+ }else{
+  logAndRegDiv.style.display = 'flex'
+  logOutDiv.style.display = 'none'
+ }
+ 
+}
+// toggle between log in + register and logout
+setupui()
+// logOUT function
+function logOutBtnClicked(){
+  localStorage.removeItem("token");
+  showAlert('You looged out successfully !', 'alert-danger');
+  setupui();
+}
+
 </script>
 </html>
