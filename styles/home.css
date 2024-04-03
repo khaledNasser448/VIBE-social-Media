@@ -1,0 +1,10 @@
+.creat-post {
+    animation: animateButton 1.5s ease-in-out infinite alternate; /* Animation properties */
+    transform-origin: bottom; /* Animation origin for smooth movement */
+  }
+  
+  @keyframes animateButton {
+    from { transform: translateY(0); }
+    to { transform: translateY(-10px); }
+  }
+  
