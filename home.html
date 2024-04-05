@@ -97,17 +97,21 @@
             <form>
               <div class="mb-3">
                 <label for="recipient-name" class="col-form-label "  style="color: rgb(0, 97, 0)" >title:</label>
-                <input type="text" class="form-control" id="username-register-input">
+                <input type="text" class="form-control" id="create-post-title">
+              </div>
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label "  style="color: rgb(0, 97, 0)" >Body:</label>
+                <textarea name="" id="create-post-body"  style="width: 100%; height: 100px; border-color: rgb(0, 97, 0); border-radius: 5px;" ></textarea>
               </div>
               <div class="mb-3">
                 <label for="recipient-name" class="col-form-label "  style="color: rgb(0, 97, 0)" >Image:</label>
-                <input type="file" class="form-control" id="image-register-input">
+                <input type="file" class="form-control" id="create-post-image">
               </div>
             </form>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn" data-bs-dismiss="modal" style="color: white; background-color: black;">Close</button>
-            <button type="button" class="btn "  style="background-color: rgb(0, 97, 0); color: white;" id="Register-btn" onclick="RegisterBtnClicked()">post</button>
+            <button type="button" class="btn "  style="background-color: rgb(0, 97, 0); color: white;" id="Register-btn" onclick = "createBost()">post</button>
           </div>
         </div>
       </div>
@@ -372,8 +376,40 @@ function RegisterBtnClicked() {
     modalInstance.hide()
   });
 }
-function ceatBostBtnClicked() {
-  
+function createBost(){
+  let url = `${baseUrl}/posts`
+  let title = document.getElementById("create-post-title").value;
+  let body = document.getElementById("create-post-body").value;
+  let postImage = document.getElementById("create-post-image").files[0];
+  let formData =  new FormData();
+  formData.append("title",title)
+  formData.append("body",body)
+  formData.append("image",postImage)
+  const token = localStorage.getItem("token")
+  const headers = {
+    "Content-Type" : "multipart/form-data",
+    "authorization" : `Bearer ${token}`
+  }
+  axios.post(url,formData, {
+    headers:headers
+  } )
+  .then(function (response) {
+    showAlert('a new vibe has been posted succesfully!','bg-success');
+    const gegisterModal = document.getElementById('Register-btn');
+    const modalInstance = bootstrap.Modal.getInstance(gegisterModal);
+    modalInstance.hide()
+    setTimeout(() => {
+    successAlert.classList.remove('bg-success')  
+  }, 4000);
+  getPosts()
+  })
+  .catch((err)=>{
+    const error = err.response.data.message
+    showAlert(error,'bg-danger');
+    setTimeout(() => {
+    successAlert.classList.remove('bg-danger')  
+  }, 4000);
+  }) 
 }
 setupui()
 
