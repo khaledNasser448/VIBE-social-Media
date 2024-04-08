@@ -144,10 +144,10 @@
                 </div>
                 <!-- //logIn and Register Div// -->
                 <!-- logOut Div -->
-                <div class=" justify-content-end" style="width: 100%; display: flex ; "  id="logoutDiv" >
-                  <img id="nav-userImage" src="./images/young-bearded-man.avif" style=" border-radius: 100px; width: 40px; height: 40px;margin-right: 5px;"  alt="">
+                <div class=" justify-content-end" style="width: 100%; display: flex ; align-items: center; "  id="logoutDiv" >
+                  <img id="userImage" src="./images/young-bearded-man.avif" style=" border-radius: 100px; width: 40px; height: 40px;margin-right: 5px;"  alt="">
                   <div style="display: flex; justify-content: center; align-items: center; margin-right: 5px;"> 
-                    <h6 id="nav-userName" style="align-items: center; color: rgb(0, 97, 0); margin-top: 5px;" > khaled448</h6>
+                    <b id="userName" style=" color: rgb(0, 97, 0); margin-top: 5px;" ></b>
                   </div>
 
                   <button type="button" class="btn btn-outline-danger" style="margin-left: 6px; " id="register-nav" onclick="logOutBtnClicked()">logOut</button>
@@ -334,9 +334,14 @@
  let token = localStorage.getItem("token");
  let logAndRegDiv = document.getElementById('logAndRegDiv');
  let logOutDiv = document.getElementById('logoutDiv')
+ let UserName = document.getElementById("userName")
+ let UserImage = document.getElementById("userImage")
+ let user = getCurrentuser()
  if(token){
   logOutDiv.style.display = 'flex'
   logAndRegDiv.style.display = 'none'
+  UserName.innerHTML = user.username
+  UserImage.src = user.profile_image
  }else{
   logAndRegDiv.style.display = 'flex'
   logOutDiv.style.display = 'none'
@@ -395,7 +400,7 @@ function createBost(){
   } )
   .then(function (response) {
     showAlert('a new vibe has been posted succesfully!','bg-success');
-    const gegisterModal = document.getElementById('Register-btn');
+    const gegisterModal = document.getElementById('creat-bost-btn');
     const modalInstance = bootstrap.Modal.getInstance(gegisterModal);
     modalInstance.hide()
     setTimeout(() => {
@@ -410,6 +415,15 @@ function createBost(){
     successAlert.classList.remove('bg-danger')  
   }, 4000);
   }) 
+}
+function getCurrentuser(){
+  let user = null 
+  let userLocalStorage = localStorage.getItem("user");
+  if(userLocalStorage != null) 
+  {
+    user = JSON.parse(userLocalStorage)
+  } 
+  return user
 }
 setupui()
 
