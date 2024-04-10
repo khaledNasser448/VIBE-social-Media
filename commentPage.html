@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./styles/home.css">
+        <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+        <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        <title>VIBE</title>
+        <style>
+            body {
+                background: #f0ecff;
+                 /* #13083b;لون تحت الإختبار */
+                 box-shadow: inset 0 0 0 0.09px white !important;
+        }
+        </style>
+    </head>
+<body>
+  <!-- ========alerts===== -->
+  <!-- logedIn sucsessfully alert -->
+  <div id="success-alert" class="alert bg-success d-none  " role="alert" style=" position: fixed; bottom: 0; right: 0; z-index: 9999; color: white;">
+  </div>
+         <!-- logIn modal -->
+  <div class="modal fade" id="logIn-btn" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel" style="color: rgb(0, 97, 0);">logIn</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label "  style="color: rgb(0, 97, 0)" >Username:</label>
+              <input type="text" class="form-control" id="username-logIn-input">
+            </div>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label "  style="color: rgb(0, 97, 0)" >Password:</label>
+              <input type="password" class="form-control" id="password-logIn-input">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn" data-bs-dismiss="modal" style="color: white; background-color: black;">Close</button>
+          <button type="button" class="btn "  style="background-color: rgb(0, 97, 0); color: white;" id="logIn-btn" onclick="logInBtnClicked()">logIn</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- //logIn modal// -->
+  <!-- register modal -->
+  <div class="modal fade" id="Register-btn" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel" style="color: rgb(0, 97, 0);">Register A New User !</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label "  style="color: rgb(0, 97, 0)" >Username:</label>
+              <input type="text" class="form-control" id="username-register-input">
+            </div>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label "  style="color: rgb(0, 97, 0)" >Name:</label>
+              <input type="text" class="form-control" id="name-register-input">
+            </div>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label "  style="color: rgb(0, 97, 0)" >Password:</label>
+              <input type="password" class="form-control" id="password-register-input">
+            </div>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label "  style="color: rgb(0, 97, 0)" >Image:</label>
+              <input type="file" class="form-control" id="image-register-input">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn" data-bs-dismiss="modal" style="color: white; background-color: black;">Close</button>
+          <button type="button" class="btn "  style="background-color: rgb(0, 97, 0); color: white;" id="Register-btn" onclick="RegisterBtnClicked()">Register</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--// register modal //-->
+      <!-- nav Bar -->
+      <div class="container " >
+        <div class="d-flex justify-content-center">
+          <div class="col-10">
+            <nav class="navbar navbar-expand-lg bg-body-tertiary  rounded">
+              <div class="container-fluid" >
+                <h3> <span class="badge " style="margin-top: 5PX; background-color:rgb(0, 97, 0) ;">VIBE</span></h3>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                  <ul class="navbar-nav">
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Profile</a>
+                    </li>
+                  </ul>
+                  <!-- logIn and Register Div -->
+                  <div class=" justify-content-end" style="width: 100%; display: flex ;"  id="logAndRegDiv" >
+                      <button type="button" class="btn btn-outline-success"  data-bs-toggle="modal" data-bs-target="#logIn-btn" onclick=" logInBtnClicked()" id="logIn-nav">logIn</button>
+                      <button type="button" class="btn btn-outline-success" style="margin-left: 5px; " data-bs-toggle="modal" data-bs-target="#Register-btn" id="register-nav">Register</button>
+                  </div>
+                  <!-- //logIn and Register Div// -->
+                  <!-- logOut Div -->
+                  <div class=" justify-content-end" style="width: 100%; display: flex ; align-items: center; "  id="logoutDiv" >
+                    <img id="userImage" src="./images/young-bearded-man.avif" style=" border-radius: 100px; width: 40px; height: 40px;margin-right: 5px;"  alt="">
+                    <div style="display: flex; justify-content: center; align-items: center; margin-right: 5px;"> 
+                      <b id="userName" style=" color: rgb(0, 97, 0); margin-top: 5px;" ></b>
+                    </div>
+  
+                    <button type="button" class="btn btn-outline-danger" style="margin-left: 6px; " id="register-nav" onclick="logOutBtnClicked()">logOut</button>
+                  </div>
+                <!-- //logOut Div// -->
+                </div>
+              </div>
+            </nav>
+          </div>
+        </div>
+          
+      </div>
+      <!-- //nav Bar//-->
+</body>
+<script src="./homeLogic.js"></script>
+<script src="./mainLogic.js"></script>
+<script src="./node_modules/axios/dist/axios.min.js"></script>
+<script>
+    const successAlert = document.getElementById('success-alert');
+    setupui()
+</script>
+</html>

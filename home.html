@@ -10,7 +10,8 @@
     <style>
         body {
             background: #f0ecff;
-    /* #13083b;لون تحت الإختبار */
+             /* #13083b;لون تحت الإختبار */
+             box-shadow: inset 0 0 0 0.09px white !important;
     }
     </style>
 </head>
@@ -122,7 +123,7 @@
     <div class="container " >
       <div class="d-flex justify-content-center">
         <div class="col-10">
-          <nav class="navbar navbar-expand-lg bg-body-tertiary shadow rounded">
+          <nav class="navbar navbar-expand-lg bg-body-tertiary  rounded">
             <div class="container-fluid" >
               <h3> <span class="badge " style="margin-top: 5PX; background-color:rgb(0, 97, 0) ;">VIBE</span></h3>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -162,37 +163,37 @@
     </div>
     <!-- //nav Bar//-->
     <!-- cards container -->
-    <div class="container" style="margin-top: 50px;" >
+    <div class="container" style="margin-top: 50px; " >
       <div class="d-flex justify-content-center">
         <div class="col-8" id="cards-div">
           <!-- card -->
-            <div class="card shadow" >
-              <div>
-                <img id="user-image" src="./images/young-bearded-man.avif" alt="" class="rounded-circle" style="width: 50px; height: 50px; padding: 5px;">
-                <span id="user-name" style="font-weight: bolder;">khaled Nasser </span>
-              </div>
-            <img src="./images/1000_F_117356929_7TI2sQCtB1GPQc5b7cKLEeJV1LjT5Dh2.jpg" class="card-img-top" alt="...">
-            <span id="minutes-ago" style="color: gray; font-size: small; margin-left: 10px;">10 min ago</span>
-            <div class="card-body">
-              <h5 class="card-title">title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <hr>
-              <span id="comments-number" style="cursor: pointer;">
+          <div class="card " style="margin-top: 20px;">
+            <div>
+              <img id="user-image" src="./images/young-bearded-man.avif" alt="" class="rounded-circle" style="width: 50px; height: 50px; padding: 5px;">
+              <span id="user-name" style="font-weight: bolder; color:  rgb(0, 97, 0);">khaled Nasser </span>
+            </div>
+          <img src="./images/1000_F_117356929_7TI2sQCtB1GPQc5b7cKLEeJV1LjT5Dh2.jpg" class="card-img-top" alt="...">
+          <span id="minutes-ago" style="color: gray; font-size: small; margin-left: 10px;">10 min ago</span>
+          <div class="card-body">
+            <h5 class="card-title">title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <hr>
+           
+              <span id="comments-number" style="cursor: pointer;" onclick="commentButnClicked()">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-dots" viewBox="0 0 16 16">
-                  <path d="M5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2"/>
-                  <path d="m2.165 15.803.02-.004c1.83-.363 2.948-.842 3.468-1.105A9 9 0 0 0 8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6a10.4 10.4 0 0 1-.524 2.318l-.003.011a11 11 0 0 1-.244.637c-.079.186.074.394.273.362a22 22 0 0 0 .693-.125m.8-3.108a1 1 0 0 0-.287-.801C1.618 10.83 1 9.468 1 8c0-3.192 3.004-6 7-6s7 2.808 7 6-3.004 6-7 6a8 8 0 0 1-2.088-.272 1 1 0 0 0-.711.074c-.387.196-1.24.57-2.634.893a11 11 0 0 0 .398-2"/>
+                <path d="M5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2"/>
+                <path d="m2.165 15.803.02-.004c1.83-.363 2.948-.842 3.468-1.105A9 9 0 0 0 8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6a10.4 10.4 0 0 1-.524 2.318l-.003.011a11 11 0 0 1-.244.637c-.079.186.074.394.273.362a22 22 0 0 0 .693-.125m.8-3.108a1 1 0 0 0-.287-.801C1.618 10.83 1 9.468 1 8c0-3.192 3.004-6 7-6s7 2.808 7 6-3.004 6-7 6a8 8 0 0 1-2.088-.272 1 1 0 0 0-.711.074c-.387.196-1.24.57-2.634.893a11 11 0 0 0 .398-2"/>
                 </svg> (3) comments
-              </span> <span id="tags-span" style=" color:white; background-color: rgb(15, 15, 15); padding: 5px; border-radius: 10px; margin-left: 10px;">
-                policy
-              </span> 
-            </div>
-            </div>
+              </span>  
+          </div>
+        
+          </div>
           <!--// card// -->
           <!-- card -->
-            <div class="card shadow" style="margin-top: 10px;">
+            <div class="card " style="margin-top: 10px;">
                         <div>
                           <img id="user-image" src="./images/young-bearded-man.avif" alt="" class="rounded-circle" style="width: 50px; height: 50px; padding: 5px;">
-                          <span id="user-name" style="font-weight: bolder;">khaled Nasser </span>
+                          <span id="user-name" style="font-weight: bolder; color:  rgb(0, 97, 0);">khaled Nasser </span>
                         </div>
                       <img src="./images/1000_F_117356929_7TI2sQCtB1GPQc5b7cKLEeJV1LjT5Dh2.jpg" class="card-img-top" alt="...">
                       <span id="minutes-ago" style="color: gray; font-size: small; margin-left: 10px;">10 min ago</span>
@@ -200,26 +201,84 @@
                         <h5 class="card-title">title</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                         <hr>
-                        <span id="comments-number" style="cursor: pointer;">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-dots" viewBox="0 0 16 16">
-                            <path d="M5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2"/>
-                            <path d="m2.165 15.803.02-.004c1.83-.363 2.948-.842 3.468-1.105A9 9 0 0 0 8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6a10.4 10.4 0 0 1-.524 2.318l-.003.011a11 11 0 0 1-.244.637c-.079.186.074.394.273.362a22 22 0 0 0 .693-.125m.8-3.108a1 1 0 0 0-.287-.801C1.618 10.83 1 9.468 1 8c0-3.192 3.004-6 7-6s7 2.808 7 6-3.004 6-7 6a8 8 0 0 1-2.088-.272 1 1 0 0 0-.711.074c-.387.196-1.24.57-2.634.893a11 11 0 0 0 .398-2"/>
-                          </svg> (3) comments
-                        </span>
-                      </div>
+                       
                     
             </div>
           <!--// card// -->
-        </div>
+            </div>
+            <div class="card " style="margin-top: 10px;">
+              <div>
+                <img id="user-image" src="./images/young-bearded-man.avif" alt="" class="rounded-circle" style="width: 50px; height: 50px; padding: 5px;">
+                <span id="user-name" style="font-weight: bolder; color:  rgb(0, 97, 0);">khaled Nasser </span>
+              </div>
+            <img src="./images/1000_F_117356929_7TI2sQCtB1GPQc5b7cKLEeJV1LjT5Dh2.jpg" class="card-img-top" alt="...">
+            <span id="minutes-ago" style="color: gray; font-size: small; margin-left: 10px;">10 min ago</span>
+            <div class="card-body">
+              <h5 class="card-title">title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <hr>
+             
+                <span id="comments-number" style="cursor: pointer;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-dots" viewBox="0 0 16 16">
+                  <path d="M5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2"/>
+                  <path d="m2.165 15.803.02-.004c1.83-.363 2.948-.842 3.468-1.105A9 9 0 0 0 8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6a10.4 10.4 0 0 1-.524 2.318l-.003.011a11 11 0 0 1-.244.637c-.079.186.074.394.273.362a22 22 0 0 0 .693-.125m.8-3.108a1 1 0 0 0-.287-.801C1.618 10.83 1 9.468 1 8c0-3.192 3.004-6 7-6s7 2.808 7 6-3.004 6-7 6a8 8 0 0 1-2.088-.272 1 1 0 0 0-.711.074c-.387.196-1.24.57-2.634.893a11 11 0 0 0 .398-2"/>
+                  </svg> (3) comments
+                </span>  
+            </div>
+          
+            </div>
+            <div class="card " style="margin-top: 10px;">
+              <div>
+                <img id="user-image" src="./images/young-bearded-man.avif" alt="" class="rounded-circle" style="width: 50px; height: 50px; padding: 5px;">
+                <span id="user-name" style="font-weight: bolder; color:  rgb(0, 97, 0);">khaled Nasser </span>
+              </div>
+            <img src="./images/1000_F_117356929_7TI2sQCtB1GPQc5b7cKLEeJV1LjT5Dh2.jpg" class="card-img-top" alt="...">
+            <span id="minutes-ago" style="color: gray; font-size: small; margin-left: 10px;">10 min ago</span>
+            <div class="card-body">
+              <h5 class="card-title">title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <hr>
+             
+                <span id="comments-number" style="cursor: pointer;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-dots" viewBox="0 0 16 16">
+                  <path d="M5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2"/>
+                  <path d="m2.165 15.803.02-.004c1.83-.363 2.948-.842 3.468-1.105A9 9 0 0 0 8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6a10.4 10.4 0 0 1-.524 2.318l-.003.011a11 11 0 0 1-.244.637c-.079.186.074.394.273.362a22 22 0 0 0 .693-.125m.8-3.108a1 1 0 0 0-.287-.801C1.618 10.83 1 9.468 1 8c0-3.192 3.004-6 7-6s7 2.808 7 6-3.004 6-7 6a8 8 0 0 1-2.088-.272 1 1 0 0 0-.711.074c-.387.196-1.24.57-2.634.893a11 11 0 0 0 .398-2"/>
+                  </svg> (3) comments
+                </span>  
+            </div>
+          
+            </div>
+            <div class="card " style="margin-top: 10px;">
+              <div>
+                <img id="user-image" src="./images/young-bearded-man.avif" alt="" class="rounded-circle" style="width: 50px; height: 50px; padding: 5px;">
+                <span id="user-name" style="font-weight: bolder; color:  rgb(0, 97, 0);">khaled Nasser </span>
+              </div>
+            <img src="./images/1000_F_117356929_7TI2sQCtB1GPQc5b7cKLEeJV1LjT5Dh2.jpg" class="card-img-top" alt="...">
+            <span id="minutes-ago" style="color: gray; font-size: small; margin-left: 10px;">10 min ago</span>
+            <div class="card-body">
+              <h5 class="card-title">title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <hr>
+             
+                <span id="comments-number" style="cursor: pointer;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-dots" viewBox="0 0 16 16">
+                  <path d="M5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2"/>
+                  <path d="m2.165 15.803.02-.004c1.83-.363 2.948-.842 3.468-1.105A9 9 0 0 0 8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6a10.4 10.4 0 0 1-.524 2.318l-.003.011a11 11 0 0 1-.244.637c-.079.186.074.394.273.362a22 22 0 0 0 .693-.125m.8-3.108a1 1 0 0 0-.287-.801C1.618 10.83 1 9.468 1 8c0-3.192 3.004-6 7-6s7 2.808 7 6-3.004 6-7 6a8 8 0 0 1-2.088-.272 1 1 0 0 0-.711.074c-.387.196-1.24.57-2.634.893a11 11 0 0 0 .398-2"/>
+                  </svg> (3) comments
+                </span>  
+            </div>
+          
+            </div>
+
       </div>
     </div>
     <!-- //cards container// -->
     <!--creat post button-->
-      <button  class="shadow creat-post" id="craet-post-btn"  data-bs-toggle="modal" data-bs-target="#creat-bost-btn" onclick="ceatBostBtnClicked()" style="position: fixed; width: 50px; height: 50px; right: 5%; bottom: 7%; background: rgb(0, 97, 0) ; border-radius: 50%; color: white; border-color: transparent;"  >
+      <button  class=" creat-post" id="craet-post-btn"  data-bs-toggle="modal" data-bs-target="#creat-bost-btn" onclick="ceatBostBtnClicked()" style="position: fixed; width: 50px; height: 50px; right: 5%; bottom: 7%; background: rgb(0, 97, 0) ; border-radius: 50%; color: white; border-color: transparent;"  >
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-feather" viewBox="0 0 16 16">
           <path d="M15.807.531c-.174-.177-.41-.289-.64-.363a3.8 3.8 0 0 0-.833-.15c-.62-.049-1.394 0-2.252.175C10.365.545 8.264 1.415 6.315 3.1S3.147 6.824 2.557 8.523c-.294.847-.44 1.634-.429 2.268.005.316.05.62.154.88q.025.061.056.122A68 68 0 0 0 .08 15.198a.53.53 0 0 0 .157.72.504.504 0 0 0 .705-.16 68 68 0 0 1 2.158-3.26c.285.141.616.195.958.182.513-.02 1.098-.188 1.723-.49 1.25-.605 2.744-1.787 4.303-3.642l1.518-1.55a.53.53 0 0 0 0-.739l-.729-.744 1.311.209a.5.5 0 0 0 .443-.15l.663-.684c.663-.68 1.292-1.325 1.763-1.892.314-.378.585-.752.754-1.107.163-.345.278-.773.112-1.188a.5.5 0 0 0-.112-.172M3.733 11.62C5.385 9.374 7.24 7.215 9.309 5.394l1.21 1.234-1.171 1.196-.027.03c-1.5 1.789-2.891 2.867-3.977 3.393-.544.263-.99.378-1.324.39a1.3 1.3 0 0 1-.287-.018Zm6.769-7.22c1.31-1.028 2.7-1.914 4.172-2.6a7 7 0 0 1-.4.523c-.442.533-1.028 1.134-1.681 1.804l-.51.524zm3.346-3.357C9.594 3.147 6.045 6.8 3.149 10.678c.007-.464.121-1.086.37-1.806.533-1.535 1.65-3.415 3.455-4.976 1.807-1.561 3.746-2.36 5.31-2.68a8 8 0 0 1 1.564-.173"/>
         </svg>  
-       </button>
+      </button>
     <!-- //creat post button// -->
    
     
@@ -229,18 +288,11 @@
 <script src="./mainLogic.js"></script>
 <script src="./node_modules/axios/dist/axios.min.js"></script>
 <script>
-  const baseUrl =`https://tarmeezacademy.com/api/v1`
+ 
   const successAlert = document.getElementById('success-alert');
   setupui();
 // alert function//
- function showAlert(message, color) {
-  successAlert.textContent = message; // Set the alert message
-  successAlert.classList.remove('d-none'); // Show the alert
-  successAlert.classList.add(color)  //set the alert color
-  setTimeout(() => {
-    successAlert.classList.add('d-none'); // Hide the alert after 3 seconds
-  }, 3000);
-}
+
 // getting users posts//
  function getPosts(){
     axios.get(`${baseUrl}/posts`)
@@ -266,7 +318,7 @@
               <h5 class="card-title">${postTitle}</h5>
               <p class="card-text">${post.body}</p>
               <hr>
-              <span id="comments-number" style="cursor: pointer;">
+              <span id="comments-number" style="cursor: pointer;"  onclick="commentButnClicked()">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-dots" viewBox="0 0 16 16">
                   <path d="M5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2"/>
                   <path d="m2.165 15.803.02-.004c1.83-.363 2.948-.842 3.468-1.105A9 9 0 0 0 8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6a10.4 10.4 0 0 1-.524 2.318l-.003.011a11 11 0 0 1-.244.637c-.079.186.074.394.273.362a22 22 0 0 0 .693-.125m.8-3.108a1 1 0 0 0-.287-.801C1.618 10.83 1 9.468 1 8c0-3.192 3.004-6 7-6s7 2.808 7 6-3.004 6-7 6a8 8 0 0 1-2.088-.272 1 1 0 0 0-.711.074c-.387.196-1.24.57-2.634.893a11 11 0 0 0 .398-2"/>
@@ -276,111 +328,10 @@
             </div>
       `
       cardsDiv.innerHTML =content;
-      // let postTagsContainer = document.getElementById(`post-tags-${post.id}`)
-      // let tagsContent = ``
-      // for (tag of post.tags){
-      //   tagsContent += `
-      //   <button type="button"> ${tag.name} </button>
-      //   `
-      //   postTagsContainer.innerHTML = tagsContent
-      // }
     }
   })
   }
    getPosts()
-  //  logedIn function
- function logInBtnClicked() {
-    let userName = document.getElementById("username-logIn-input").value
-    let password = document.getElementById("password-logIn-input").value
-    const navUserImage = document.getElementById("nav-userImage");
-    const NavUserName = document.getElementById("nav-userName");
-    let params = {
-      username: userName ,
-      password : password
-    }
-    axios.post(`${baseUrl}/login`,params )
-  .then(function (response) {
-    let token = response.data.token;
-    localStorage.setItem(`token`, token)
-    localStorage.setItem(`user`, JSON.stringify(response.data.user))
-    const logInModal = document.getElementById('logIn-btn');
-    const modalInstance = bootstrap.Modal.getInstance(logInModal);
-    modalInstance.hide()
-    showAlert('You looged in successfully !','bg-success');
-    setupui();
-  })
-  .catch(function (error) {
-    // showAlert(error.response.data.message,'bg-danger');
-    setTimeout(() => {
-    successAlert.classList.remove('bg-danger')  
-  }, 4000);
-  });
-  }
-  // logOUT function
-  function logOutBtnClicked(){
-  localStorage.removeItem("token");
-  localStorage.removeItem("user");
-  setupui();
-  showAlert('You looged out successfully !', 'bg-danger');
-  setTimeout(() => {
-    successAlert.classList.remove('bg-danger')  
-  }, 4000);
-  
-}
-
-// toggle between log in + register and logout
- function setupui(){
- let logInAndRegisterDiv = document.getElementById("logAndRegDiv")
- let token = localStorage.getItem("token");
- let logAndRegDiv = document.getElementById('logAndRegDiv');
- let logOutDiv = document.getElementById('logoutDiv')
- let UserName = document.getElementById("userName")
- let UserImage = document.getElementById("userImage")
- let user = getCurrentuser()
- if(token){
-  logOutDiv.style.display = 'flex'
-  logAndRegDiv.style.display = 'none'
-  UserName.innerHTML = user.username
-  UserImage.src = user.profile_image
- }else{
-  logAndRegDiv.style.display = 'flex'
-  logOutDiv.style.display = 'none'
- }
- 
-}
-function RegisterBtnClicked() {
-  let ReguserName = document.getElementById("username-register-input").value;
-  let Regpassword = document.getElementById("password-register-input").value;
-  let name = document.getElementById("name-register-input").value;
-  let RegImage = document.getElementById("image-register-input").files[0];
-  let params = new FormData()
-  params.append("username", ReguserName )
-  params.append("name", name )
-  params.append("password", Regpassword )
-  params.append("image", RegImage )
-  
-  axios.post(`${baseUrl}/register`,params )
-  .then(function (response) {
-    let token = response.data.token;
-    localStorage.setItem(`token`, token)
-    localStorage.setItem(`user`, JSON.stringify(response.data.user))
-    showAlert('You have Registered successfully!','bg-success');
-    setupui();
-  }) 
-  .catch(function (error) {
-    const message = error.response.data.message
-    showAlert(message,'bg-danger');
-    setTimeout(() => {
-    successAlert.classList.remove('bg-danger')  
-  }, 4000);
-  })
-  .finally(function () {
-    // always executed
-    const gegisterModal = document.getElementById('Register-btn');
-    const modalInstance = bootstrap.Modal.getInstance(gegisterModal);
-    modalInstance.hide()
-  });
-}
 function createBost(){
   let url = `${baseUrl}/posts`
   let title = document.getElementById("create-post-title").value;
@@ -416,14 +367,8 @@ function createBost(){
   }, 4000);
   }) 
 }
-function getCurrentuser(){
-  let user = null 
-  let userLocalStorage = localStorage.getItem("user");
-  if(userLocalStorage != null) 
-  {
-    user = JSON.parse(userLocalStorage)
-  } 
-  return user
+function commentButnClicked(){
+  window.location = "commentPage.html"
 }
 setupui()
 
