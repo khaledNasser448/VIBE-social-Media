@@ -23,6 +23,56 @@
   <!-- //logedIn sucsessfully alert// -->
   <!-- ========//alerts//===== -->
   <!-- =========modals========= -->
+  <!-- delete modal -->
+  <div class="modal fade" id="delete-btn" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel" style="color: red;">are you sure you want to delete the post?</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn" data-bs-dismiss="modal" style="color: white; background-color: black;">Close</button>
+          <button type="button" class="btn "  style="background-color:red; color: white;" onclick="deleteBtnClicked()">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- //delete modal// -->
+  <!-- ubdate btn -->
+  <div class="modal fade" id="ubdate-btn" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel" style="color: rgb(0, 97, 0);">Ubdate your Vibe !</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label "  style="color: rgb(0, 97, 0)" >title:</label>
+              <input type="text"  class="form-control" id="create-post-title">
+            </div>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label "  style="color: rgb(0, 97, 0)" >Body:</label>
+              <textarea name="" id="create-post-body"  style="width: 100%; height: 100px; border-color: rgb(0, 97, 0); border-radius: 5px;" ></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label "  style="color: rgb(0, 97, 0)" >Image:</label>
+              <input type="file" class="form-control" id="create-post-image">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn" data-bs-dismiss="modal" style="color: white; background-color: black;">Close</button>
+          <button type="button" class="btn "  style="background-color: rgb(0, 97, 0); color: white;" id="Register-btn" onclick = "ubdateBtnClicked()">ubdate</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- //ubdate btn// -->
   <!-- logIn modal -->
   <div class="modal fade" id="logIn-btn" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -169,8 +219,16 @@
           <!-- card -->
           <div class="card " style="margin-top: 20px;">
             <div>
-              <img id="user-image" src="./images/young-bearded-man.avif" alt="" class="rounded-circle" style="width: 50px; height: 50px; padding: 5px;">
-              <span id="user-name" style="font-weight: bolder; color:  rgb(0, 97, 0);">khaled Nasser </span>
+              <div id="card-header-container" style="display: flex; justify-content: space-between;">
+                <div>
+                  <img id="user-image" src="./images/young-bearded-man.avif" alt="" class="rounded-circle" style="width: 50px; height: 50px; padding: 5px;">
+                  <span id="user-name" style="font-weight: bolder; color:  rgb(0, 97, 0);">khaled Nasser </span>
+                </div>
+               <div id="ubdateAndDeleteDiv" style="margin-top: 5px">
+                  <button type="button" class="btn btn-outline-success" style="margin-left: 6px; " data-bs-toggle="modal" data-bs-target="#ubdate-btn" id="ubdate-btn" >ubdate</button>
+                  <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#delete-btn" style="margin-left: 6px; " id="delete-btn">Delete</button>
+              </div>
+              </div>
             </div>
           <img src="./images/1000_F_117356929_7TI2sQCtB1GPQc5b7cKLEeJV1LjT5Dh2.jpg" class="card-img-top" alt="...">
           <span id="minutes-ago" style="color: gray; font-size: small; margin-left: 10px;">10 min ago</span>
@@ -194,6 +252,7 @@
                         <div>
                           <img id="user-image" src="./images/young-bearded-man.avif" alt="" class="rounded-circle" style="width: 50px; height: 50px; padding: 5px;">
                           <span id="user-name" style="font-weight: bolder; color:  rgb(0, 97, 0);">khaled Nasser </span>
+                          
                         </div>
                       <img src="./images/1000_F_117356929_7TI2sQCtB1GPQc5b7cKLEeJV1LjT5Dh2.jpg" class="card-img-top" alt="...">
                       <span id="minutes-ago" style="color: gray; font-size: small; margin-left: 10px;">10 min ago</span>
@@ -210,6 +269,7 @@
               <div>
                 <img id="user-image" src="./images/young-bearded-man.avif" alt="" class="rounded-circle" style="width: 50px; height: 50px; padding: 5px;">
                 <span id="user-name" style="font-weight: bolder; color:  rgb(0, 97, 0);">khaled Nasser </span>
+                
               </div>
             <img src="./images/1000_F_117356929_7TI2sQCtB1GPQc5b7cKLEeJV1LjT5Dh2.jpg" class="card-img-top" alt="...">
             <span id="minutes-ago" style="color: gray; font-size: small; margin-left: 10px;">10 min ago</span>
@@ -309,8 +369,15 @@
       content+= `
       <div class="card shadow" style="margin-top:50px" >
               <div>
-                <img id="user-image" src="${post.author.profile_image}" alt="" class="rounded-circle" style="width: 50px; height: 50px; padding: 5px;">
-                <span id="user-name" style="font-weight: bolder;">${post.author.username}</span>
+                <div id="card-header-container" style="display: flex; justify-content: space-between;">
+                <div>
+                  <img id="user-image" src="${post.author.profile_image}" alt="" class="rounded-circle" style="width: 50px; height: 50px; padding: 5px;">
+                  <span id="user-name" style="font-weight: bolder; color:  rgb(0, 97, 0);">${post.author.username} </span>
+                </div>
+               <div id="ubdateAndDeleteDiv" style="margin-top: 5px">
+                  <button type="button" class="btn btn-outline-success" style="margin-left: 6px; " data-bs-toggle="modal" data-bs-target="#ubdate-btn" id="ubdate-btn" >ubdate</button>
+                  <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#delete-btn" style="margin-left: 6px; " id="delete-btn">Delete</button>
+                </div>
               </div>
             <img src="${post.image}" class="card-img-top" alt="...">
             <span id="minutes-ago" style="color: gray; font-size: small; margin-left: 10px;">${post.created_at}</span>
