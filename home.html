@@ -24,7 +24,7 @@
   <!-- ========//alerts//===== -->
   <!-- =========modals========= -->
   <!-- delete modal -->
-  <div class="modal fade" id="delete-btn" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="delete-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -35,43 +35,14 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn" data-bs-dismiss="modal" style="color: white; background-color: black;">Close</button>
-          <button type="button" class="btn "  style="background-color:red; color: white;" onclick="deleteBtnClicked()">Delete</button>
+          <button type="button" class="btn "  style="background-color:red; color: white;" onclick="confirmDeleteBOst()" >Delete</button>
+          <input type="hidden" value="" id="delete-modal-input">
         </div>
       </div>
     </div>
   </div>
   <!-- //delete modal// -->
   <!-- ubdate btn -->
-  <div class="modal fade" id="ubdate-btn" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel" style="color: rgb(0, 97, 0);">Ubdate your Vibe !</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="mb-3">
-              <label for="recipient-name" class="col-form-label "  style="color: rgb(0, 97, 0)" >title:</label>
-              <input type="text"  class="form-control" id="create-post-title">
-            </div>
-            <div class="mb-3">
-              <label for="recipient-name" class="col-form-label "  style="color: rgb(0, 97, 0)" >Body:</label>
-              <textarea name="" id="create-post-body"  style="width: 100%; height: 100px; border-color: rgb(0, 97, 0); border-radius: 5px;" ></textarea>
-            </div>
-            <div class="mb-3">
-              <label for="recipient-name" class="col-form-label "  style="color: rgb(0, 97, 0)" >Image:</label>
-              <input type="file" class="form-control" id="create-post-image">
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn" data-bs-dismiss="modal" style="color: white; background-color: black;">Close</button>
-          <button type="button" class="btn "  style="background-color: rgb(0, 97, 0); color: white;" id="Register-btn" onclick = "ubdateBtnClicked()">ubdate</button>
-        </div>
-      </div>
-    </div>
-  </div>
   <!-- //ubdate btn// -->
   <!-- logIn modal -->
   <div class="modal fade" id="logIn-btn" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -141,7 +112,7 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel" style="color: rgb(0, 97, 0);">Create A new Vibe !</h1>
+            <h1 class="modal-title fs-5" id="add-modal-header" style="color: rgb(0, 97, 0);">Create A new Vibe !</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
@@ -149,6 +120,7 @@
               <div class="mb-3">
                 <label for="recipient-name" class="col-form-label "  style="color: rgb(0, 97, 0)" >title:</label>
                 <input type="text" class="form-control" id="create-post-title">
+                <input type="hidden"  id="idPost" value="">
               </div>
               <div class="mb-3">
                 <label for="recipient-name" class="col-form-label "  style="color: rgb(0, 97, 0)" >Body:</label>
@@ -162,7 +134,8 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn" data-bs-dismiss="modal" style="color: white; background-color: black;">Close</button>
-            <button type="button" class="btn "  style="background-color: rgb(0, 97, 0); color: white;" id="Register-btn" onclick = "createBost()">post</button>
+            <button type="button" class="btn "  style="background-color: rgb(0, 97, 0); color: white;" id="post-btn" onclick = "createBost()">post</button>
+            
           </div>
         </div>
       </div>
@@ -334,7 +307,7 @@
     </div>
     <!-- //cards container// -->
     <!--creat post button-->
-      <button  class=" creat-post" id="craet-post-btn"  data-bs-toggle="modal" data-bs-target="#creat-bost-btn" onclick="ceatBostBtnClicked()" style="position: fixed; width: 50px; height: 50px; right: 5%; bottom: 7%; background: rgb(0, 97, 0) ; border-radius: 50%; color: white; border-color: transparent;"  >
+      <button  class=" creat-post" id="craet-post-btn"   onclick="ceatBostBtnClicked()" style="position: fixed; width: 50px; height: 50px; right: 5%; bottom: 7%; background: rgb(0, 97, 0) ; border-radius: 50%; color: white; border-color: transparent;"  >
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-feather" viewBox="0 0 16 16">
           <path d="M15.807.531c-.174-.177-.41-.289-.64-.363a3.8 3.8 0 0 0-.833-.15c-.62-.049-1.394 0-2.252.175C10.365.545 8.264 1.415 6.315 3.1S3.147 6.824 2.557 8.523c-.294.847-.44 1.634-.429 2.268.005.316.05.62.154.88q.025.061.056.122A68 68 0 0 0 .08 15.198a.53.53 0 0 0 .157.72.504.504 0 0 0 .705-.16 68 68 0 0 1 2.158-3.26c.285.141.616.195.958.182.513-.02 1.098-.188 1.723-.49 1.25-.605 2.744-1.787 4.303-3.642l1.518-1.55a.53.53 0 0 0 0-.739l-.729-.744 1.311.209a.5.5 0 0 0 .443-.15l.663-.684c.663-.68 1.292-1.325 1.763-1.892.314-.378.585-.752.754-1.107.163-.345.278-.773.112-1.188a.5.5 0 0 0-.112-.172M3.733 11.62C5.385 9.374 7.24 7.215 9.309 5.394l1.21 1.234-1.171 1.196-.027.03c-1.5 1.789-2.891 2.867-3.977 3.393-.544.263-.99.378-1.324.39a1.3 1.3 0 0 1-.287-.018Zm6.769-7.22c1.31-1.028 2.7-1.914 4.172-2.6a7 7 0 0 1-.4.523c-.442.533-1.028 1.134-1.681 1.804l-.51.524zm3.346-3.357C9.594 3.147 6.045 6.8 3.149 10.678c.007-.464.121-1.086.37-1.806.533-1.535 1.65-3.415 3.455-4.976 1.807-1.561 3.746-2.36 5.31-2.68a8 8 0 0 1 1.564-.173"/>
         </svg>  
@@ -361,22 +334,29 @@
     let cardsDiv = document.getElementById("cards-div")
     let posts = response.data.data
     let author = response.data.data.author
-    for (const post of posts) {
+    for ( post of posts) {
       let postTitle = ``
+      // show or hide edit and delete button
+      let user= getCurrentuser()
+      let isMyPost = user != null && post.author.id == user.id
+      let butnContent = ``
+      if(isMyPost){
+        butnContent = `  <button type="button" class="btn btn-outline-secondary" style=" margin-left: 6px; float:right; margin-top:5px;margin-right:5px "  onclick = "editPostBtnClicked('${encodeURIComponent(JSON.stringify(post))}')"  > Edit </button>
+                         <button type="button" class="btn btn-outline-danger"  style="margin-left: 6px; float :right;margin-top:5px;margin-right:5px " onclick ="deleteBtnClicked('${encodeURIComponent(JSON.stringify(post))}')" id="delete-btn">Delete</button>
+        `
+      }
       if(post.title != null){
         postTitle = post.title
       }
       content+= `
       <div class="card shadow" style="margin-top:50px" >
               <div>
-                <div id="card-header-container" style="display: flex; justify-content: space-between;">
+                <div id="card-header-container" >
                 <div>
                   <img id="user-image" src="${post.author.profile_image}" alt="" class="rounded-circle" style="width: 50px; height: 50px; padding: 5px;">
                   <span id="user-name" style="font-weight: bolder; color:  rgb(0, 97, 0);">${post.author.username} </span>
-                </div>
-               <div id="ubdateAndDeleteDiv" style="margin-top: 5px">
-                  <button type="button" class="btn btn-outline-success" style="margin-left: 6px; " data-bs-toggle="modal" data-bs-target="#ubdate-btn" id="ubdate-btn" >ubdate</button>
-                  <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#delete-btn" style="margin-left: 6px; " id="delete-btn">Delete</button>
+                  ${butnContent}
+                  
                 </div>
               </div>
             <img src="${post.image}" class="card-img-top" alt="...">
@@ -400,10 +380,12 @@
   }
    getPosts()
 function createBost(){
-  let url = `${baseUrl}/posts`
+  let url = ``
   let title = document.getElementById("create-post-title").value;
   let body = document.getElementById("create-post-body").value;
   let postImage = document.getElementById("create-post-image").files[0];
+  let postId = document.getElementById("idPost").value 
+  let isCreate = postId == null || postId == ""
   let formData =  new FormData();
   formData.append("title",title)
   formData.append("body",body)
@@ -412,6 +394,14 @@ function createBost(){
   const headers = {
     "Content-Type" : "multipart/form-data",
     "authorization" : `Bearer ${token}`
+  }
+  if(isCreate){
+    url = `${baseUrl}/posts`
+
+  }
+  else{
+    url = `${baseUrl}/posts/${postId}`
+    formData.append("_method","put")
   }
   axios.post(url,formData, {
     headers:headers
